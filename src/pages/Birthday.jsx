@@ -8,35 +8,52 @@ const Birthday = () => {
   const [showFinal, setShowFinal] = useState(false);
   const [confettiActive, setConfettiActive] = useState(false);
 
-  // All messages in sequence
+  // Refined messages array
   const messages = [
-    "You are the best person I ever met",
-    "Thank you being the person who always take care of me from the bottom of the heart",
-    "A little kinder, a good mentor, a helping hand and a person gives me direction when I was wrong",
-    "I always pray from god that they bless u with more and more success",
-    "Happy happy happiest birthday dear ❤️❤️🥳"
+    "You are the most amazing person I've ever met ✨",
+    "Thank you for always taking care of me with so much love ❤️",
+    "You're my guiding light - a mentor, a helper, my true north 🌟",
+    "I pray you're blessed with endless success and happiness 🙏",
+    "Happy Birthday to my dearest friend! 🎂"
   ];
 
-  // Full message
-  const fullMessage = `Happy happy happiest birthday dear ❤️❤️🥳
-  
-  May god bless you with everything love wealth and beautiful life 😋😋
-  
-  You are the best person I ever met in my life may god give u more than you deserve 🥳❤️😎
-  
-  Thank you being the person who always take care of me from the bottom of the heart 🥳🥳🥳
-  
-  A little kinder, a good mentor, a helping hand and a person gives me direction when I was wrong 😌😌
-  
-  I always pray from god that they bless u with more and more success and may life always be gentle with you and may never forget how special you are to me ❤️❤️
-  
-  No matter where life takes us but i always pray for u first from god 😎😛😁😁
-  
-  Happy birthday to the person who means more to me than I can ever fully explain 🥺
-  
-  And one more thing i am waiting to become a chachu 🤣🤣 of a beautiful kido 🤣🤣`;
+  // Beautifully formatted full message
+  const fullMessage = `🎂 Happy Happy Happiest Birthday, Dear! 🎂
 
-  // Handle gift tap
+May God bless you abundantly with love, wealth, and the most beautiful life imaginable! 🌈✨
+
+You truly are the best person I've ever met - may life give you even more than you deserve! 🥳❤️😎
+
+Thank you for being that special someone who always cares for me from the bottom of your heart 🥹
+
+A little kinder soul, a wonderful mentor, a helping hand always extended, and my compass when I lose direction 🌟
+
+I constantly pray that God blesses you with boundless success, that life treats you gently, and that you never forget how incredibly special you are to me ❤️
+
+No matter where life takes us, my first prayer to God will always be for your happiness and well-being 🌍🙏
+
+Happy birthday to someone who means more to me than words could ever express 🥺
+
+And yes, I must admit... I'm eagerly waiting to become a "Chachu" to the most adorable kiddo! 🤣👶
+
+May this birthday bring you as much joy as you've brought into my life! 🎉`;
+
+  // Response messages
+  const responses = {
+    soon: {
+      emoji: "🎉🤩👶🚀",
+      title: "Woohoo! That's Awesome!",
+      message: "I'm already planning all the fun adventures, toys, and secret treats!",
+      note: "Promise I'll be the coolest, funnest Chachu ever! 😎"
+    },
+    later: {
+      emoji: "⏳😊🎁",
+      title: "I'll Wait Patiently...",
+      message: "Good things come to those who wait, right?",
+      note: "But remember, my spoiling skills are ready whenever you are! 😉"
+    }
+  };
+
   const handleTap = () => {
     if (step < messages.length) {
       setStep(step + 1);
@@ -48,7 +65,6 @@ const Birthday = () => {
     }
   };
 
-  // Handle answer selection
   const handleAnswer = (selected) => {
     setAnswer(selected);
     setConfettiActive(true);
@@ -57,7 +73,6 @@ const Birthday = () => {
     }, 2000);
   };
 
-  // Reset everything
   const resetAll = () => {
     setStep(0);
     setShowQuestion(false);
@@ -66,7 +81,6 @@ const Birthday = () => {
     setConfettiActive(false);
   };
 
-  // Confetti effect
   useEffect(() => {
     if (confettiActive) {
       const timer = setTimeout(() => setConfettiActive(false), 3000);
@@ -133,7 +147,7 @@ const Birthday = () => {
               <div className="bow-loop right"></div>
             </div>
 
-            {/* Gift Lid - opens on click */}
+            {/* Gift Lid */}
             <div className={`gift-lid ${step > 0 ? 'open' : ''}`}>
               <div className="lid-top"></div>
               <div className="lid-side front"></div>
@@ -153,7 +167,7 @@ const Birthday = () => {
               </div>
             </div>
 
-            {/* Tap instruction - only on first step */}
+            {/* Tap instruction */}
             {step === 0 && (
               <div className="tap-hint">
                 <div className="tap-icon">👇</div>
@@ -218,12 +232,12 @@ const Birthday = () => {
             
             <div className="question-content">
               <p className="question-text">
-                <span className="highlight">Apse ek question puchu?</span>
+                <span className="highlight">Can I ask you something?</span>
               </p>
               
               <div className="single-question">
                 <h3>When will I become "Chachu"?</h3>
-                <p className="question-hint">Of a beautiful kiddo! 🤣🤣</p>
+                <p className="question-hint">Of the most adorable kiddo! 🤣👶</p>
               </div>
 
               <div className="answer-options">
@@ -233,7 +247,7 @@ const Birthday = () => {
                 >
                   <span className="option-emoji">🚀</span>
                   <span className="option-text">SOON!</span>
-                  <span className="option-subtext">(1-2 saal mein)</span>
+                  <span className="option-subtext">(1-2 years from now)</span>
                 </button>
                 
                 <button 
@@ -242,25 +256,16 @@ const Birthday = () => {
                 >
                   <span className="option-emoji">⏳</span>
                   <span className="option-text">LATER...</span>
-                  <span className="option-subtext">(5+ saal baad)</span>
+                  <span className="option-subtext">(5+ years later)</span>
                 </button>
               </div>
 
-              {answer === 'soon' && (
-                <div className="answer-response soon-response">
-                  <div className="response-emoji">🎉🤩👶</div>
-                  <h4>Yay! Exciting!</h4>
-                  <p>I'm ready to spoil them with love, toys, and all the fun! 🎮🍫🚗</p>
-                  <p className="excited-msg">Can't wait to be the coolest Chachu ever! 🤣</p>
-                </div>
-              )}
-
-              {answer === 'later' && (
-                <div className="answer-response later-response">
-                  <div className="response-emoji">😢⏰🎁</div>
-                  <h4>Okay... I'll wait</h4>
-                  <p>Patiently waiting for my turn to be Chachu... ⏳</p>
-                  <p className="funny-note">But don't take too long! I've got spoiling to do! 😉</p>
+              {answer && (
+                <div className={`answer-response ${answer}-response`}>
+                  <div className="response-emoji">{responses[answer].emoji}</div>
+                  <h4>{responses[answer].title}</h4>
+                  <p>{responses[answer].message}</p>
+                  <p className="special-note">{responses[answer].note}</p>
                 </div>
               )}
             </div>
@@ -294,17 +299,29 @@ const Birthday = () => {
             </div>
 
             <div className="final-message">
-              {fullMessage.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="message-paragraph">
-                  {paragraph}
-                </p>
-              ))}
+              {fullMessage.split('\n\n').map((paragraph, index) => {
+                const hasEmojis = /[\u{1F600}-\u{1F6FF}]/u.test(paragraph);
+                const isFirstLine = index === 0;
+                
+                return (
+                  <p 
+                    key={index} 
+                    className={`message-paragraph ${
+                      hasEmojis ? 'emoji-line' : ''
+                    } ${
+                      isFirstLine ? 'first-line' : ''
+                    }`}
+                  >
+                    {paragraph}
+                  </p>
+                );
+              })}
             </div>
 
             <div className="answer-showcase">
               {answer && (
                 <div className={`your-answer ${answer}`}>
-                  <span className="answer-label">Your answer:</span>
+                  <span className="answer-label">Your choice:</span>
                   <span className="answer-value">
                     {answer === 'soon' ? 'SOON! 🚀' : 'LATER... ⏳'}
                   </span>
@@ -317,7 +334,7 @@ const Birthday = () => {
                 Wishing you the most amazing birthday filled with love, laughter, and wonderful memories! 🌟
               </p>
               <div className="signature">
-                — Your Best Friend ❤️
+                — Your Best Friend Forever ❤️
               </div>
             </div>
 

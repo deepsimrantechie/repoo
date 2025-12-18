@@ -577,10 +577,22 @@
   font-size: 16px;
 }
 
-.excited-msg, .funny-note {
+.special-note {
   font-weight: bold;
   color: #FF6B6B !important;
   margin-top: 15px !important;
+  font-size: 17px !important;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .see-final-btn {
@@ -652,6 +664,7 @@
   overflow-y: auto;
 }
 
+/* Special text formatting */
 .message-paragraph {
   font-size: 18px;
   line-height: 1.8;
@@ -662,6 +675,27 @@
 
 .message-paragraph:last-child {
   margin-bottom: 0;
+}
+
+.emoji-line {
+  font-size: 22px !important;
+  font-weight: bold !important;
+  text-align: center !important;
+  margin: 25px 0 !important;
+  padding: 15px !important;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 107, 0.1)) !important;
+  border-radius: 15px !important;
+}
+
+.first-line {
+  font-size: 28px !important;
+  color: #FF6B6B !important;
+  font-weight: bold !important;
+  margin-bottom: 30px !important;
+  padding: 20px !important;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 107, 107, 0.15)) !important;
+  border-radius: 20px !important;
+  border: 2px solid #FFD700 !important;
 }
 
 .answer-showcase {
@@ -756,7 +790,34 @@
     font-size: 16px;
   }
   
+  .emoji-line {
+    font-size: 18px !important;
+  }
+  
+  .first-line {
+    font-size: 22px !important;
+  }
+  
   .option-btn {
     padding: 20px;
   }
+}
+
+/* Scrollbar Styling */
+.final-message::-webkit-scrollbar {
+  width: 8px;
+}
+
+.final-message::-webkit-scrollbar-track {
+  background: #FFF0F0;
+  border-radius: 10px;
+}
+
+.final-message::-webkit-scrollbar-thumb {
+  background: #FF6B6B;
+  border-radius: 10px;
+}
+
+.final-message::-webkit-scrollbar-thumb:hover {
+  background: #FF5555;
 }
