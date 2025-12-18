@@ -334,7 +334,6 @@ May this birthday bring you as much joy as you've brought into my life! 🎉`;
                 Wishing you the most amazing birthday filled with love, laughter, and wonderful memories! 🌟
               </p>
               <div className="signature">
-                — Your Best Friend Forever ❤️
               </div>
             </div>
 
